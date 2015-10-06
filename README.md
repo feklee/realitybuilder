@@ -7,6 +7,12 @@ construction. Overlaid on that image is a virtual building block that the user
 may position: augmented reality. The construction team works with the
 application via a web-based administration interface.
 
+Additional resources:
+
+  * Reality Builder [discussion group][1]
+
+  * [@RealityBuilder][10] on Twitter
+
 
 Demo
 ====
@@ -386,6 +392,7 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 
 
+[1]: http://groups.google.com/group/realitybuilder
 [2]: http://www.realitybuilder.com
 [3]: http://github.org/feklee/realitybuilder.com
 [4]: http://www.youtube.com/watch?v=XiI6lOvQLRM
@@ -394,3 +401,4 @@ specific language governing permissions and limitations under the License.
 [7]: https://github.com/caolan/nodeunit/
 [8]: http://lists.whatwg.org/pipermail/whatwg-whatwg.org/2009-September/022702.html
 [9]: mailto:robert@ocallahan.org
+[10]: https://twitter.com/RealityBuilder
