@@ -11,7 +11,7 @@ application via a web-based administration interface.
 Demo
 ====
 
-Visit: [demo/index.html][1]
+Visit: `demo/index.html`
 
 
 Sample Application
@@ -45,8 +45,8 @@ Embedding the Reality Builder in a web page
 Example where the Reality Builder is hosted on *example.com*:
 
  1. Embed Socket.IO into you page. You may use the distribution which comes
-   with the Reality Builder. Example:
-   
+    with the Reality Builder. Example:
+
        <script src="http://example.com/socket.io/socket.io.js"></script>
 
  2. Embed the Reality Builder:
@@ -386,7 +386,6 @@ CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 
 
-[1]: demo/index.html
 [2]: http://www.realitybuilder.com
 [3]: http://github.org/feklee/realitybuilder.com
 [4]: http://www.youtube.com/watch?v=XiI6lOvQLRM
