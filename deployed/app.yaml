@@ -1,4 +1,4 @@
-# Copyright 2010-2012 Felix E. Klee <felix.klee@inka.de>
+# Copyright 2010, 2011 Felix E. Klee <felix.klee@inka.de>
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
 # use this file except in compliance with the License. You may obtain a copy of
@@ -12,24 +12,30 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-application: realitybuilder-hrd # HRD = High Replication Datastore
+application: realitybuildercom
 version: 1-9-0
 runtime: python
 api_version: 1
-# threadsafe: false # true may also work, but is untested
-
-builtins:
-- datastore_admin: on
-- remote_api: on
 
 handlers:
-- url: /
-  static_files: index.html
-  upload: index.html
-
 # For components not included in the source code distribution:
 - url: /separate
   static_dir: separate
+
+# JavaScript files that should be served statically. Note that these JavaScript
+# files can *not* be included using Django's "include" directive.
+- url: /javascript/(DD_belatedPNG_0\.0\.8a-min|admin|base|index|jquery-1\.6\.2\.min|jquery\.easing\.1\.3|swfobject|jquery\.transform\.light)\.js
+  static_files: javascript/\1.js
+  upload: javascript/(DD_belatedPNG_0\.0\.8a-min|admin|base|index|jquery-1\.6\.2\.min|jquery\.easing\.1\.3|swfobject|jquery\.transform\.light)\.js
+
+- url: /javascript/dojo
+  static_dir: javascript/dojo
+
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /images
+  static_dir: images
 
 - url: /.*
   script: main.py
@@ -45,13 +51,8 @@ skip_files:
 - ^(.*/)?.*/RCS/.*
 - ^(.*/)?\..*
 - ^(.*/)?.*\.bak$
-- ^javascripts/dojo-release-1.6.1
-- ^javascripts/dojo-release-1.6.1-src
-- ^javascripts/realityBuilder
-- ^javascripts/realityBuilder.profile.js
-- ^demo/source$
-- ^demo/scene$
-- ^documentation$
+- ^source$
+- ^scene$
 - ^LICENSE$
 - ^NOTICE$
 - ^README$

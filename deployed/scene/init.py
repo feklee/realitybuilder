@@ -39,6 +39,7 @@
 import os.path
 import sys
 import json
+import logging
 sys.path.append(os.path.realpath('.'))
 
 from google.appengine.dist import use_library
@@ -62,7 +63,10 @@ else:
     (options, args) = parser.parse_args()
     app_version = options.server.split('.')[0]
 
-namespace_manager.set_namespace(app_version + '_reality_builder_com')
+
+namespace = app_version + '_reality_builder_com'
+namespace_manager.set_namespace(namespace)
+logging.info('Namespace: ' + namespace)
 
 # Deletes all construction entries:
 queries = [Construction.all()]
