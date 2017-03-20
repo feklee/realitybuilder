@@ -1,16 +1,17 @@
-# Initializes the datastore with sample data.
+# Initializes the datastore with sample data in the namespace "demo".
 #
 # Possibilities to execute the code in this file:
 #
-# * GAE SDK 1.5 or compatible: Paste the code in the interactive console and
-#   execute it.
-# 
+# * Google Cloud SDK 147 with app-engine-python 1.9 or compatible: Execute the
+#   main app using `dev_appserver.py`, then paste the code here in the
+#   interactive console and execute it.
+#
 # * GAE (production):
-# 
+#
 #   a) Enter the directory of the Reality Builder.
 #
 #   b) Connect to the remote API shell.
-# 
+#
 #     On Windows XP's "cmd.exe" (substitute %-placeholders):
 #
 #       %PYTHON_PATH%\python.exe %GAE_PATH%\remote_api_shell.py -s ^
@@ -21,7 +22,7 @@
 #
 #   c) Paste the code and press enter. It will execute automatically.
 
-# Copyright 2010-2012 Felix E. Klee <felix.klee@inka.de>
+# Copyright 2010-2017 Felix E. Klee <felix.klee@inka.de>
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
 # use this file except in compliance with the License. You may obtain a copy of
@@ -40,14 +41,12 @@ import sys
 sys.path.append(os.path.realpath('.'))
 
 from google.appengine.dist import use_library
-use_library('django', '0.96')
 
 from main import Construction
 from main import Block
 from main import BlockProperties
 from main import NewBlock
 from main import NewBlockEmail
-from django.utils import simplejson
 
 from google.appengine.api import namespace_manager
 
