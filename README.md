@@ -30,12 +30,6 @@ Hosted on: [www.realitybuilder.com][2] ([source][3])
 A video of a previous version is [available on YouTube][4].
 
 
-About documentation
-===================
-
-See also sub directory: [documentation][5]
-
-
 Hosting the Reality Builder
 ===========================
 
@@ -396,7 +390,6 @@ specific language governing permissions and limitations under the License.
 [2]: http://www.realitybuilder.com
 [3]: http://github.org/feklee/realitybuilder.com
 [4]: http://www.youtube.com/watch?v=XiI6lOvQLRM
-[5]: documentation
 [6]: http://nodejs.org/
 [7]: https://github.com/caolan/nodeunit/
 [8]: http://lists.whatwg.org/pipermail/whatwg-whatwg.org/2009-September/022702.html
