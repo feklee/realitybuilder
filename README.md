@@ -13,6 +13,10 @@ Additional resources:
 
   * [@RealityBuilder][10] on Twitter
 
+The currently version deployed on Google App Engine, as of March 2017, may be
+found in the sub directory `deployed`. Everything else in this repository is WIP
+and may be broken.
+
 
 Demo
 ====
@@ -272,8 +276,7 @@ Before releasing a new version:
 
 Do not forget:
 
-  * Tag the version in the version control system (Mercurial as of this
-    writing).
+  * Tag the version in the version control system.
 
   * Increase the version number in "app.yaml" already to that of the next
     version.

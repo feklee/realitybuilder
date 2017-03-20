@@ -1,0 +1,23 @@
+Notes
+=====
+
+* Centering of HTML content is done with the help of a table, since other
+  solutions don't seem to work decently with older browsers such as IE6. The
+  problem often is that when the window is too small, content is clipped from
+  the top.
+
+  When changing the implementation for centering, don't forget to check whether
+  the content is still displayed correctly when the browser window is smaller
+  than the content.
+
+* The date-time in the admin controls is shown in the time zone of the
+  system/browser.
+
+-- 
+The following settings are interpreted by EMACS, do not remove them.
+Local Variables:
+mode:text
+fill-column:79
+coding: utf-8
+End:
+Local IspellDict: american

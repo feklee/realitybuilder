@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% comment %}
+  Copyright 2010, 2011 Felix E. Klee <felix.klee@inka.de>
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy of
+  the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  License for the specific language governing permissions and limitations under
+  the License.
+{% endcomment %}
+
+{% block head %}
+  <title>Reality Builder Administration</title>        
+  <meta name="description" content="A tool for remote construction.">
+
+  <link rel="stylesheet" href="/demo/stylesheets/admin.css">
+{% endblock %}
+
+{% block bottomBar %}
+  <div id="bottomBar">
+    <div id="positionAndAngleDisplay">
+      x&nbsp;=&nbsp;<span id="newBlockXB">0</span>,
+      y&nbsp;=&nbsp;<span id="newBlockYB">0</span>,
+      z&nbsp;=&nbsp;<span id="newBlockZB">0</span>,
+      a&nbsp;=&nbsp;<span id="newBlockA">0</span>
+    </div>
+    <button type="button" id="realBlocksVisibilityButton"></button>
+    <button type="button" id="pendingBlocksVisibilityButton"></button>
+    <button type="button" id="logoutButton">Log Out</button>
+  </div>
+{% endblock %}
+
+{% block sideBar %}
+  <div id="sideBar">
+    <h2 class="first">Settings</h2>
+    <fieldset id="cameraSettings">
+      <legend>Camera</legend>
+      <ul class="first">
+        <li>
+          <input type="text" id="cameraXTextField">
+          <label for="cameraXTextField">mm = x</label>
+        </li>
+        <li>
+          <input type="text" id="cameraYTextField">
+          <label for="cameraYTextField">mm = y</label>
+        </li>
+        <li>
+          <input type="text" id="cameraZTextField">
+          <label for="cameraZTextField">mm = z</label>
+        </li>
+        <li>
+          <input type="text" id="cameraFlTextField">
+          <label for="cameraFlTextField">mm = Focal Length</label>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <input type="text" id="cameraAXTextField">
+          <label for="cameraAXTextField">rad = x Rot.</label>
+        </li>
+        <li>
+          <input type="text" id="cameraAYTextField">
+          <label for="cameraAYTextField">rad = y Rot.</label>
+        </li>
+        <li>
+          <input type="text" id="cameraAZTextField">
+          <label for="cameraAZTextField">rad = z Rot.</label>
+        </li>
+        <li>
+          <input type="text" id="cameraSensorResolutionTextField">
+          <label for="cameraSensorResolutionTextField">px/mm = Sensor 
+            Resol.</label>
+        </li>
+      </ul>
+    </fieldset>
+    <button type="button" id="saveSettingsButton">Save Settings</button>
+    <button type="button" id="previewCameraButton">Preview Camera</button>
+    <div id="prerenderedBlockConfigurations">
+      <h2>Prerendered Block Configurations</h2>
+      <input type="text" id="prerenderedBlockConfigurationTextField">
+      <button type="button" 
+              id="setPrerenderedBlockConfigurationButton">Set</button>
+      <button type="button" 
+              id="prevPrerenderedBlockConfigurationButton">&lt;</button>
+      <button type="button" 
+              id="nextPrerenderedBlockConfigurationButton">&gt;</button>
+    </div>
+    <h2>Blocks</h2>
+    <div class="scrollPane">
+      <table id="blocksTable">
+        <thead>
+          <tr>
+            <th class="number">x</th>
+            <th class="number">y</th>
+            <th class="number">z</th>
+            <th class="number">a</th>
+            <th>Created</th>
+            <th>State</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript" src="/demo/javascript/admin.js"></script>
+  <script type="text/javascript">
+    realityBuilderAdminDemo.setLogoutUrl('{{ logout_url }}');
+  </script>
+{% endblock %}

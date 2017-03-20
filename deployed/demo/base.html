@@ -1,0 +1,113 @@
+{% comment %}
+  Copyright 2010, 2011 Felix E. Klee <felix.klee@inka.de>
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy of
+  the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  License for the specific language governing permissions and limitations under
+  the License.
+{% endcomment %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="SHORTCUT ICON" href="/demo/images/favicon.png">
+
+  {# media="all" hides style sheets from Netscape 4 #}
+  <link rel="stylesheet" href="/demo/stylesheets/reset.css">
+  <link rel="stylesheet" href="/demo/stylesheets/base.css">
+
+  <!--[if lte IE 7]>
+    <link rel="stylesheet" href="/demo/stylesheets/base_lte_IE_7.css">
+  <![endif]-->
+
+  {% block head %}{% endblock head %}
+</head>
+
+<body>
+  {% comment %}
+    Certain content is added dynamically instead of being hidden and later
+    unhidden using CSS. Rationale: browsers that neither support CSS nor
+    JavaScript should only show the JavaScript-not-supported error message.
+  {% endcomment %}
+  <table id="contentContainer">
+    <tr>
+      <td>
+        <div id="errorMessage">
+          <noscript>
+            <p>The Reality Builder does not work because your browser does not
+              support
+              <a href="http://developer.mozilla.org/en/JavaScript/About_JavaScript"
+                 >JavaScript</a>, or because JavaScript is disabled.</p>
+          </noscript>
+        </div>
+
+        <div id="view">
+          <img id="backgroundImage" src="/demo/images/placeholder.gif" 
+               alt="Background Image">
+          <div id="realityBuilder"></div>
+          <div id="controlPanel">
+            <div id="incXButton"></div>
+            <div id="decXButton"></div>
+            <div id="incYButton"></div>
+            <div id="decYButton"></div>
+            <div id="incZButton"></div>
+            <div id="decZButton"></div>
+            <div id="rotate90Button"></div>
+            <div id="requestMakeRealButton"></div>
+          </div>
+
+          <div id="infoMessage">
+            Press <strong>R</strong> to schedule a reset with a delay of
+            <span id="resetDelay"></span> ms.
+          </div>
+
+          <div id="loadIndicator">
+            <img src="/demo/images/load_indicator.gif" alt="Loading...">
+          </div>
+        </div>
+
+        {# For admin mode. #}
+        {% block sideBar %}{% endblock %}
+        {% block bottomBar %}{% endblock %}
+      </td>
+    </tr>
+    <tr class="debug">
+      <td id="firebugLite">
+      </td>
+    </tr>
+  </table>
+
+  <script type="text/javascript">
+    // unhides view, unless JavaScript is not supported or JavaScript engine is
+    // very old (i.e. doesn't support "getElementByID"):
+    document.getElementById('view').style.display = 'block';
+  </script>
+
+  {% include "base_IE.html" %}
+
+  <script type="text/javascript" 
+          src="/demo/javascript/jquery-1.6.2.min.js"></script>
+
+  <script type="text/javascript" src="/realitybuilder.js"></script>
+
+  <script type="text/javascript" src="/demo/javascript/base.js"></script>
+
+  <script type="text/javascript">
+    realityBuilderDemo.setRealityBuilderVersion(
+    '{{ reality_builder_version }}');
+  </script>
+
+  {% block scripts %}{% endblock scripts %}
+</body>
+
+</html>

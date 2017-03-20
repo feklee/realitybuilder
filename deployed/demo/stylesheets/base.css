@@ -1,0 +1,314 @@
+/* Copyright 2010, 2011 Felix E. Klee <felix.klee@inka.de>
+
+  Licensed under the Apache License, Version 2.0 (the "License"); you may not
+  use this file except in compliance with the License. You may obtain a copy of
+  the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+  License for the specific language governing permissions and limitations under
+  the License. */
+
+* {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+body, html, #view, #coordinateControlsCanvas, #backgroundImage, 
+#status, #info {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+input {
+    cursor: text;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: 12px;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+}
+
+h1 {
+    text-align: left;
+    font-size: 16px;
+}
+
+table#contentContainer {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+table#contentContainer td {
+    width: 100%;
+    height: 100%;
+}
+
+a, a:link, a:visited, a:hover, a:active, a:focus {
+    text-decoration: none;
+    -moz-outline-style: none;
+    border-bottom: 1px dotted;
+}
+
+a, a:link, a:visited, a:active, a:focus {
+    color: white;
+}
+
+/* ":focus" is not highlighted, since otherwise, when hitting the back button
+with Opera 11, the lastly clicked link is always highlighted, which looks
+strange. */
+a:hover {
+    color: red;
+}
+
+:focus {
+    outline: none;
+    -moz-outline: none;
+    -moz-outline-style: none;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+}
+
+p {
+    margin-top: 1em;
+    text-align: left;
+    color: white;
+}
+
+#loadIndicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+}
+
+#loadIndicator img {
+    display: block;
+    position: absolute;
+    top: 224px;
+    left: 304px;
+}
+
+#errorMessage {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    width: 240px;
+}
+
+#backgroundImage {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #808080;
+}
+
+table#contentContainer {
+    position: absolute;
+}
+
+table#contentContainer td {
+    vertical-align: middle;
+}
+
+table#contentContainer tr {
+    height: 100%;
+}
+
+table#contentContainer tr.debug {
+    height: auto;
+}
+
+#view {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    width: 640px;
+    height: 480px;
+
+    display: none; /* Initially hidden, and only unhidden for browsers that 
+                      support JavaScript with "document.getElementById". */
+}
+
+#controlPanel, #decXButton, #incXButton, #decYButton, #incYButton, 
+#incZButton, #decZButton, #rotate90Button, #requestMakeRealButton {
+    position: absolute;
+    background-image: url(../images/control_panel.png);
+}
+
+#controlPanel {
+    bottom: 10px;
+    left: 145px;
+    width: 350px;
+    height: 110px;
+}
+
+#controlPanel.disabled {
+    background-position: 0px -120px;
+}
+
+#incXButton, #decXButton, #incYButton, #decYButton {
+    width: 50px;
+    height: 29px;
+}
+
+#incXButton {
+    top: 57px;
+    left: 174px;
+    background-position: -170px -290px;
+}
+
+#incXButton:hover {
+    background-position: -170px -390px;
+}
+
+#incXButton.disabled, #incXButton.disabled:hover {
+    background-position: -170px -490px;
+}
+
+#decXButton {
+    top: 24px;
+    left: 77px;
+    background-position: -50px -240px;
+}
+
+#decXButton:hover {
+    background-position: -50px -340px;
+}
+
+#decXButton.disabled, #decXButton.disabled:hover {
+    background-position: -50px -440px;
+}
+
+#incYButton {
+    top: 12px;
+    left: 154px;
+    background-position: -170px -240px;
+}
+
+#incYButton:hover {
+    background-position: -170px -340px;
+}
+
+#incYButton.disabled, #incYButton.disabled:hover {
+    background-position: -170px -440px;
+}
+
+#decYButton {
+    top: 68px;
+    left: 96px;
+    background-position: -50px -290px;
+}
+
+#decYButton:hover {
+    background-position: -50px -390px;
+}
+
+#decYButton.disabled, #decYButton.disabled:hover {
+    background-position: -50px -490px;
+}
+
+#incZButton, #decZButton {
+    width: 40px;
+    height: 40px;
+}
+
+#incZButton {
+    top: 10px;
+    left: 10px;
+    background-position: 0 -240px;
+}
+
+#incZButton:hover {
+    background-position: 0 -340px;
+}
+
+#incZButton.disabled, #incZButton.disabled:hover {
+    background-position: 0 -440px;
+}
+
+#decZButton {
+    top: 60px;
+    left: 10px;
+    background-position: 0 -290px;
+}
+
+#decZButton:hover {
+    background-position: 0 -390px;
+}
+
+#decZButton.disabled, #decZButton.disabled:hover {
+    background-position: 0 -490px;
+}
+
+#rotate90Button {
+    top: 40px;
+    left: 125px;
+    width: 49px;
+    height: 36px;
+    background-position: -110px -240px;
+}
+
+#rotate90Button:hover {
+    background-position: -110px -340px;
+}
+
+#rotate90Button.disabled, #rotate90Button.disabled:hover {
+    background-position: -110px -440px;
+}
+
+#requestMakeRealButton {
+    top: 10px;
+    left: 250px;
+    width: 90px;
+    height: 90px;
+    background-position: -230px -240px;
+}
+
+#requestMakeRealButton:hover {
+    background-position: -230px -340px;
+}
+
+#requestMakeRealButton.disabled, #requestMakeRealButton.disabled:hover {
+    background-position: -230px -440px;
+}
+
+#infoMessage {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    display: block;
+}
+
+/* Disabled, for two reasons:
+
+* Takes up space also in release mode, in IE8 and Opera 11.50.
+
+* Is not needed with modern browsers. */
+#firebugLite {
+    display: none;
+}

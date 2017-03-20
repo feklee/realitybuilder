@@ -16,6 +16,7 @@ application: realitybuilder-hrd # HRD = High Replication Datastore
 version: 1-11-0
 runtime: python
 api_version: 1
+# threadsafe: false # true may also work, but is untested
 
 builtins:
 - datastore_admin: on
