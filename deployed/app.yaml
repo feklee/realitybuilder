@@ -12,8 +12,6 @@
 # License for the specific language governing permissions and limitations under
 # the License.
 
-application: realitybuildercom
-version: 1-10-0
 runtime: python27
 api_version: 1
 threadsafe: false # `true` may also work, but is untested
