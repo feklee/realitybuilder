@@ -16,6 +16,9 @@ runtime: python27
 api_version: 1
 threadsafe: false # `true` may also work, but is untested
 
+builtins:
+- remote_api: on
+
 handlers:
 # For components not included in the source code distribution:
 - url: /separate

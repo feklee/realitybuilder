@@ -10,12 +10,9 @@
 #
 #   a) Enter the directory of the Reality Builder.
 #
-#   b) Connect to the remote API shell.
+#   b) Connect to the remote API shell:
 #
-#     On Windows XP's "cmd.exe" (substitute %-placeholders):
-#
-#       %PYTHON_PATH%\python.exe %GAE_PATH%\remote_api_shell.py -s ^
-#       %VERSION%.%APPLICATION%.appspot.com
+#       remote_api_shell.py -s %VERSION%.%APPLICATION%.appspot.com
 #
 #     Note that, despite specifying a version above, the same datastore as for
 #     all other versions is used: There is only one.
