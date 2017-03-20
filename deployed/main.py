@@ -15,15 +15,12 @@
 # the License.
 
 import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-
-from google.appengine.dist import use_library
-use_library('django', '0.96')
 
 import logging
 import time
 import sys
 import exceptions
+import json
 import google.appengine.ext.db
 from google.appengine.api import namespace_manager
 from google.appengine.api import mail
@@ -32,7 +29,6 @@ from google.appengine.ext.webapp import template
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
 from google.appengine.ext import db
-from django.utils import simplejson
 from datetime import datetime, timedelta
 
 # Whether debugging should be turned on:
@@ -43,7 +39,7 @@ debug = False
 def dump_jsonp(obj, data, callback):
     obj.response.headers['Content-Type'] = \
         'application/javascript; charset=utf-8';
-    obj.response.out.write(callback + '(' + simplejson.dumps(data) + ')')
+    obj.response.out.write(callback + '(' + json.dumps(data) + ')')
 
 # General information about the construction.
 class Construction(db.Model):
@@ -154,7 +150,7 @@ class PrerenderMode(db.Model):
                     result.delete()
 
             # Inserts blocks:
-            blocks = simplejson.loads(block_configurations[i])
+            blocks = json.loads(block_configurations[i])
             for block in blocks:
                 x_b = block[0]
                 y_b = block[1]
@@ -419,7 +415,7 @@ class RPCConstruction(webapp.RequestHandler):
 
     @classmethod
     def json_decode_list(cls, l):
-        return map(simplejson.loads, l)
+        return map(json.loads, l)
 
     # Returns JSON serializable data related to the block properties.
     @classmethod
@@ -447,7 +443,7 @@ class RPCConstruction(webapp.RequestHandler):
                          'posSpacingZ': 
                          block_properties.pos_spacing_z,
                          'outlineBXY': 
-                         simplejson.loads(block_properties.outline_bxy),
+                         json.loads(block_properties.outline_bxy),
                          'collisionOffsetsListBXY': \
                              cls.json_decode_list \
                              (block_properties.collision_offsets_list_bxy),
