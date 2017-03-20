@@ -13,7 +13,7 @@
 # the License.
 
 application: realitybuildercom
-version: 1-9-0
+version: 1-10-0
 runtime: python27
 api_version: 1
 threadsafe: false # `true` may also work, but is untested
