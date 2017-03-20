@@ -3,21 +3,26 @@
 # Possibilities to execute the code in this file:
 #
 # * Google Cloud SDK 147 with app-engine-python 1.9 or compatible: Execute the
-#   main app using `dev_appserver.py`, then paste the code here in the
+#   main app using "dev_appserver.py", then paste the code here in the
 #   interactive console and execute it.
 #
 # * GAE (production):
 #
-#   a) Enter the directory of the Reality Builder.
+#   a) Enter the directory where "app.yaml"
 #
-#   b) Connect to the remote API shell:
+#   b) Provide credentials:
 #
-#       remote_api_shell.py -s %VERSION%.%APPLICATION%.appspot.com
+#       gcloud auth application-default login
+#
+#   c) Connect to the remote API shell (replace variables accordingly):
+#
+#       $APPENGINE_PATH\remote_api_shell.py -s \
+#       $VERSION.$APPLICATION.appspot.com
 #
 #     Note that, despite specifying a version above, the same datastore as for
 #     all other versions is used: There is only one.
 #
-#   c) Paste the code and press enter. It will execute automatically.
+#   d) Paste the code and press enter. It will execute automatically.
 
 # Copyright 2010-2017 Felix E. Klee <felix.klee@inka.de>
 #
@@ -38,8 +43,6 @@ import sys
 import json
 import logging
 sys.path.append(os.path.realpath('.'))
-
-from google.appengine.dist import use_library
 
 from main import Construction
 from main import Block
