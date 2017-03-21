@@ -278,8 +278,9 @@ Do not forget:
 
   * Tag the version in the version control system.
 
-  * Increase the version number in "app.yaml" already to that of the next
-    version.
+  * When deploying to Google App Engine, supply the version on the command line:
+
+        gcloud app deploy --version $VERSION
 
 
 Versioning
