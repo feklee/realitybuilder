@@ -285,7 +285,7 @@ Do not forget:
 Versioning
 ----------
 
-The version of a release is strucutred as follows: *major.minor.bugfix*
+The version of a release is structured as follows: *major.minor.bugfix*
 
 Example: *2.1.4*
 
