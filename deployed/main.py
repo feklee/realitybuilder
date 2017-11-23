@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2011 Felix E. Klee <felix.klee@inka.de>
+# Copyright 2010-2017 Felix E. Klee <felix.klee@inka.de>
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
 # use this file except in compliance with the License. You may obtain a copy of
@@ -22,6 +22,11 @@ import sys
 import exceptions
 import json
 import google.appengine.ext.db
+
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+from google.appengine.dist import use_library
+use_library('django', '1.2')
+
 from google.appengine.api import namespace_manager
 from google.appengine.api import mail
 from google.appengine.api import users

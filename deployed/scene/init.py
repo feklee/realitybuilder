@@ -63,7 +63,6 @@ else:
     (options, args) = parser.parse_args()
     app_version = options.server.split('.')[0]
 
-
 namespace = app_version + '_reality_builder_com'
 namespace_manager.set_namespace(namespace)
 logging.info('Namespace: ' + namespace)

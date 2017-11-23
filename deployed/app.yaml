@@ -15,6 +15,7 @@
 runtime: python27
 api_version: 1
 threadsafe: false # `true` may also work, but is untested
+version: 1-10-0
 
 builtins:
 - remote_api: on
@@ -57,8 +58,13 @@ skip_files:
 - ^(.*/)?.*/RCS/.*
 - ^(.*/)?\..*
 - ^(.*/)?.*\.bak$
-- ^source$
-- ^scene$
+- ^javascripts/dojo-release-1.6.1
+- ^javascripts/dojo-release-1.6.1-src
+- ^javascripts/realityBuilder
+- ^javascripts/realityBuilder.profile.js
+- ^demo/source$
+- ^demo/scene$
+- ^documentation$
 - ^LICENSE$
 - ^NOTICE$
 - ^README$
