@@ -29,6 +29,8 @@ Successfully tested on November 23 2017 CNST with the following configuration:
 
       - Executed with Node.js v8.9.1:
 
+            node app.js
+
 Felix E. Klee <felix.klee@inka.de>
 
 [1]: https://github.com/feklee/realitybuilder.com/commit/d61448141da0aab0347976912e4937d3e1bb2855
