@@ -11,4 +11,24 @@ deployed version was obtained from:
 
 The intention was to make it workable on the soon mandatory Python 2.7 runtime.
 
+Successfully tested on November 23 2017 CNST with the following configuration:
+
+  * Google App Engine SDK 1.9.10 on Windows 7 x64
+  
+  * Executed from `..` as:
+  
+        dev_appserver.py deployed
+        
+  * Initialized using the script `init.py` in the directory `scene`.
+  
+  * Containing realitybuilder.com web site:
+  
+      - Local URL: http://localhost:3000/
+
+      - Commit: [d61448141da0aab0347976912e4937d3e1bb2855][1]
+
+      - Executed with Node.js v8.9.1:
+
 Felix E. Klee <felix.klee@inka.de>
+
+[1]: https://github.com/feklee/realitybuilder.com/commit/d61448141da0aab0347976912e4937d3e1bb2855
