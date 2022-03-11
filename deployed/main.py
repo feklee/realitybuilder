@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2011 Felix E. Klee <felix.klee@inka.de>
+# Copyright 2010-2022 Felix E. Klee <felix.klee@inka.de>
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may not
 # use this file except in compliance with the License. You may obtain a copy of
@@ -33,6 +33,12 @@ from datetime import datetime, timedelta
 
 # Whether debugging should be turned on:
 debug = False
+
+# Whether the datastore needs to be initialized
+if 'NEEDS_INITIALIZATION' in os.environ:
+    needs_initialization = True
+else:
+    needs_initialization = False
 
 # Dumps the data "data" as JSONP response, with the correct MIME type.
 # "obj" is the object from which the response is generated.
@@ -863,6 +869,11 @@ class RPCAdminUpdateSettings(webapp.RequestHandler):
 
 class RealityBuilderJs(webapp.RequestHandler):
     def get(self):
+        global needs_initialization
+        if needs_initialization:
+            execfile('scene/init.py')
+            needs_initialization = False
+
         template_values = {
             'debug': debug,
             'host': self.request.host

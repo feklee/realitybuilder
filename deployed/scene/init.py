@@ -290,4 +290,4 @@ pendingBlockEmail.recipient_address = \
     'New Pending Blocks <new.pending.blocks@realitybuilder.com>'
 pendingBlockEmail.put()
 
-print 'Done.'
+logging.info('Initialized')
