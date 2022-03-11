@@ -160,8 +160,8 @@ var realityBuilder = (function () {
     // Loads the Dojo JavaScript that is used for release mode. Almost all
     // functionality is built into one file.
     function requestLoadReleaseScript() {
-        var host = '{{ host }}';
-        requestLoadScript('http://' + host + '/javascript/dojo/dojo.xd.js' +
+        var baseUrl = '{{ base_url }}';
+        requestLoadScript(baseUrl + '/javascript/dojo/dojo.xd.js' +
                           releaseScriptPostfix());
     }
 

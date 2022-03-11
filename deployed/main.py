@@ -874,9 +874,14 @@ class RealityBuilderJs(webapp.RequestHandler):
             execfile('scene/init.py')
             needs_initialization = False
 
+        if 'BASE_URL' in os.environ:
+            base_url = os.environ['BASE_URL']
+        else:
+            base_url = 'http://' + self.request.host
+
         template_values = {
             'debug': debug,
-            'host': self.request.host
+            'base_url': base_url
             }
         
         path = os.path.join(os.path.dirname(__file__), 'realitybuilder.js')

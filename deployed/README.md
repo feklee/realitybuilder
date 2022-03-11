@@ -13,9 +13,13 @@ obtained from:
 Felix E. Klee <felix.klee@inka.de>
 
 
-Initialization
-==============
+Configuration
+=============
 
-It is now possible for the app to initialize itself. The presence of
-the environment variable `NEEDS_INITIALIZATION` causes `scene/init.py`
-to be loaded.
+Environment variables:
+
+  * `NEEDS_INITIALIZATION`: If set, causes loading of `scene/init.py`
+    to initialize the datastore.
+  
+  * `BASE_URL`: If set, uses its value for the base URL in resource
+    links. Otherwise, the base URL is automatically determined.
